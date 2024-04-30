@@ -14,19 +14,19 @@ class ListScreen extends StatelessWidget {
             itemCount: 10, 
             itemBuilder: (context, index) {
               return Card(
-                color: Colors.black,
+                color: Color.fromARGB(255, 203, 198, 198),
                 child: ListTile(
                   title: Text(
                     'Title ${index + 1}',
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.black),
                   ),
                   subtitle: Text(
                     'Description ${index + 1}',
-                    style: const TextStyle(color: Colors.grey),
+                    style: const TextStyle(color: Colors.black),
                   ),
                   trailing: IconButton(
                     icon: const Icon(Icons.download),
-                    color: Colors.white,
+                    color: Colors.black,
                     onPressed: () {
                       // download functionality
                     },

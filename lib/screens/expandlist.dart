@@ -16,14 +16,14 @@ class SecondScreen extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Card(
-                color: Colors.black,
+                color: Color.fromARGB(255, 203, 198, 198),
                 child: ExpansionTile(
                   tilePadding: EdgeInsets.zero,
                   title: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       'Title ${index + 1}',
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ),
                   children: <Widget>[
@@ -34,12 +34,12 @@ class SecondScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               'Description ${index + 1}',
-                              style: const TextStyle(color: Colors.grey),
+                              style: const TextStyle(color: Colors.black),
                             ),
                           ),
                           IconButton(
                             icon: const Icon(Icons.download),
-                            color: Colors.white,
+                            color: Colors.black,
                             onPressed: () {
                               // download functionality
                             },
