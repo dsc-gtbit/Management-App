@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: const BoxDecoration(color: Colors.white),
               ),
               Align(
-                  alignment: const Alignment(0, -0.80),
+                  alignment:  Alignment(0, -3.4.sp),
                   child: Text(
                     textAlign: TextAlign.center,
                     'Guru Tegh Bahadur\nInstitute of Technology',
@@ -37,31 +37,31 @@ class _LoginScreenState extends State<LoginScreen> {
                               48, 0, 0, 0), // Choose the color of the shadow
                           blurRadius:
                               5.0, // Adjust the blur radius for the shadow effect
-                          offset: Offset(2.0,
-                              2.0), // Set the horizontal and vertical offset for the shadow
+                          offset: Offset(1.5,
+                              1.5), // Set the horizontal and vertical offset for the shadow
                         ),
                       ],
                       color: const Color.fromRGBO(0, 0, 0, 1),
                       fontSize: 23.sp,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   )),
               Align(
-                  alignment: const Alignment(0, -0.45),
+                  alignment:  Alignment(0, -2.5.sp),
                   child: Container(
-                    height: 250,
-                    width: 250,
+                    height: 220,
+                    width: 220,
                     decoration: BoxDecoration(
                         image: const DecorationImage(
                             image: AssetImage("assets/gtblogo.png"),
                             fit: BoxFit.fitHeight),
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(150)
-                        //more than 50% of width makes circle
+                      
                         ),
                   )),
               Align(
-                  alignment: const Alignment(0, -0.0),
+                  alignment:  Alignment(0, -0.7.sp),
                   child: Text(
                     'Welcome !',
                     //textAlign: TextAlign.left,
@@ -73,18 +73,18 @@ class _LoginScreenState extends State<LoginScreen> {
                               48, 0, 0, 0), // Choose the color of the shadow
                           blurRadius:
                               5.0, // Adjust the blur radius for the shadow effect
-                          offset: Offset(2.0,
-                              2.0), // Set the horizontal and vertical offset for the shadow
+                          offset: Offset(1.5,
+                              1.5) // Set the horizontal and vertical offset for the shadow
                         ),
                       ],
                       color: const Color.fromRGBO(0, 0, 0, 1),
                       fontSize: 23.sp,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   )),
 
               Align(
-                  alignment: const Alignment(0, 0.85),
+                  alignment:  Alignment(0,3.6.sp),
                   child: Container(
                       decoration: BoxDecoration(
                         boxShadow: [
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     MaterialStateProperty.all<Color>(
                                         Colors.black),
                                 padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.all(7.sp)),
+                                    const EdgeInsets.fromLTRB(65,11,65,11)),
                                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.0),
                                     side: const BorderSide(
@@ -114,17 +114,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               debugPrintStack();
                             },
-                            child: Text("         Log In          ",
+                            child: Text("         Log in          ",
                                 style: TextStyle(
                                     fontFamily: 'Calibri',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 22.sp,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 17.sp,
                                     color: const Color.fromARGB(
                                         255, 255, 255, 255)))),
                       ]))),
 
               Align(
-                  alignment: const Alignment(0, 0.2),
+                  alignment:  Alignment(0, 1.5.sp),
                   child: Container(
                       height: 55,
                       decoration: BoxDecoration(
@@ -137,28 +137,29 @@ class _LoginScreenState extends State<LoginScreen> {
                         //),
                       ),
                       width: 350,
-                      child: const Stack(children: <Widget>[
+                      child:  Stack(children: <Widget>[
                         TextField(
-                          style: TextStyle(color: Colors.black),
+                          style: const TextStyle(color: Colors.black),
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(20),
-                            suffixIcon: Icon(Icons.email_outlined),
+                            contentPadding: const EdgeInsets.all(20),
+                            suffixIcon: const Icon(Icons.email_outlined),
                             filled: true,
-                            fillColor: Color.fromARGB(17, 14, 140, 243),
-                            border: OutlineInputBorder(
+                            fillColor: const Color.fromARGB(59, 192, 222, 247),
+                            border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8))),
                             labelText: 'Email',
                             labelStyle: TextStyle(
+                              
                               fontFamily: 'Calibri',
-                              color: Colors.black,
+                              color: Colors.black.withOpacity(0.4),
                             ),
-                            focusColor: Color.fromARGB(255, 167, 21, 21),
+                            
                           ),
                         ),
                       ]))),
               Align(
-                  alignment: const Alignment(0, 0.35),
+                  alignment: Alignment(0, 2.1.sp),
                   child: Container(
                       height: 55,
                       decoration: const BoxDecoration(),
@@ -166,8 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Stack(children: <Widget>[
                         TextField(
                           obscureText: _isObscure,
-                          style: const TextStyle(
-                              color: Colors.black, fontFamily: 'Calibri'),
+                          
                           decoration: InputDecoration(
                               contentPadding: const EdgeInsets.all(20),
                               suffixIcon: IconButton(
@@ -180,25 +180,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                     });
                                   }),
                               filled: true,
-                              fillColor: const Color.fromARGB(17, 14, 140, 243),
+                              fillColor: const Color.fromARGB(59, 192, 222, 247),
                               border: const OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(8))),
                               focusColor: Colors.black,
                               labelText: 'Password',
-                              labelStyle: const TextStyle(
-                                  color: Colors.black, fontFamily: 'Calibri')),
+                              labelStyle:  TextStyle(
+                                  color: Colors.black.withOpacity(0.4), fontFamily: 'Calibri')),
                         ),
                       ]))),
               Align(
-                alignment: const Alignment(0, 0.45),
+                alignment:  Alignment(0, 2.44.sp),
 
                 child: CheckboxListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 27.sp),
+                  contentPadding: EdgeInsets.fromLTRB(25.sp,0,0,0),
                   activeColor: Colors.blue,
                   selectedTileColor: Colors.black,
-                  title: const Text("Remember Me"),
-                  tileColor: Colors.black,
+                  title: const Text("Remember Me",style: TextStyle(
+                                    fontFamily: 'Calibri',)),
+                  tileColor: Colors.black.withOpacity(0.7),
                   value: checkedValue,
                   onChanged: (newValue) {
                     setState(() {

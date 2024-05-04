@@ -16,7 +16,7 @@ class SecondScreen extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Card(
-                color: Color.fromARGB(255, 203, 198, 198),
+                color: const Color.fromARGB(255, 203, 198, 198),
                 child: ExpansionTile(
                   tilePadding: EdgeInsets.zero,
                   title: Padding(
