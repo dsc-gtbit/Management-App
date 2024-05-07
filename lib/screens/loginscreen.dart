@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     side: const BorderSide(
                                         color: Color.fromARGB(255, 0, 0, 0))))),
                             onPressed: () {
-                              debugPrintStack();
+                              Navigator.pushNamed(context, '/listscreen');
                             },
                             child: Text("         Log in          ",
                                 style: TextStyle(
