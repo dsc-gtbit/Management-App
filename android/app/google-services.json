@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1084417434100",
+    "project_id": "mixmasters-91a3d",
+    "storage_bucket": "mixmasters-91a3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084417434100:android:6a36567bb3ecebfc4159a1",
+        "android_client_info": {
+          "package_name": "com.example.salary_slip"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiq64-dceouGsjRQxCKwoUruHuzyDOasw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

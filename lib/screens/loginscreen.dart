@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:salary_slip/provider/temp.dart';
+
+
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final login =Provider.of<Login>(context);
     // ignore: non_constant_identifier_names
     return ResponsiveSizer(builder: (context, orientation, ScreenType) {
       return Scaffold(
@@ -101,6 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       //width: 200,
                       child: Stack(children: <Widget>[
                         ElevatedButton(
+                          
                             style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
@@ -111,7 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(8.0),
                                     side: const BorderSide(
                                         color: Color.fromARGB(255, 0, 0, 0))))),
-                            onPressed: () {
+                            onPressed: ()async {
+                              await login.signIn(emailController.text, passwordController.text);
+
                               Navigator.pushNamed(context, '/listscreen');
                             },
                             child: Text("         Log in          ",
@@ -139,6 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 350,
                       child:  Stack(children: <Widget>[
                         TextField(
+                          controller: emailController,
                           style: const TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.all(20),
@@ -167,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Stack(children: <Widget>[
                         TextField(
                           obscureText: _isObscure,
-                          
+                          controller: passwordController,
                           decoration: InputDecoration(
                               contentPadding: const EdgeInsets.all(20),
                               suffixIcon: IconButton(
