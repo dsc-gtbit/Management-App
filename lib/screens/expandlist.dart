@@ -28,7 +28,8 @@ class SecondScreen extends StatelessWidget {
                   ),
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0, vertical: 8.0),
                       child: Row(
                         children: [
                           Expanded(
@@ -42,6 +43,7 @@ class SecondScreen extends StatelessWidget {
                             color: Colors.black,
                             onPressed: () {
                               // download functionality
+                              Navigator.pushNamed(context, '/payslip');
                             },
                           ),
                         ],

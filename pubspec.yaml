@@ -30,6 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations: 
+    sdk: flutter
+  cached_network_image: ^3.3.0
+  flutter_svg: ^2.0.9
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -65,11 +69,13 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  fonts:
+  fonts: 
     - family: Calibri
-      fonts:
-        - asset: fonts/Calibri.ttf
-        - asset: fonts/CalibriLight.ttf
+      fonts: 
+        - asset: assets/fonts/CalibriLight.ttf
+          weight: 300
+        - asset: assets/fonts/Calibri.ttf
+          weight: 400
   
   assets:
     - assets/
