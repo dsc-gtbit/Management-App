@@ -31,11 +31,18 @@ class MyApp extends StatelessWidget {
           create: (context) => Login(),
         )
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: "/login",
-        onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
-      ),
+      child: Sizer(builder: (context, oritentation, deviceType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          initialRoute: "/payslip",
+          onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
+        );
+      }),
+      // child: MaterialApp(
+      //   debugShowCheckedModeBanner: false,
+      //   initialRoute: "/login",
+      //   onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
+      // ),
     );
   }
 }
