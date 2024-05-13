@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salary_slip/screens/api_response_screen.dart';
 import 'package:salary_slip/screens/expandlist.dart';
 import 'package:salary_slip/screens/listscreen.dart';
 import 'package:salary_slip/screens/loginscreen.dart';
@@ -15,6 +16,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SecondScreen());
       case "/payslip":
         return MaterialPageRoute(builder: (_) => const AndroidLargeOneScreen());
+      case "/apiData":
+        return MaterialPageRoute(builder: (_) => const APIResponseScreen());
       default:
         return MaterialPageRoute(builder: (_) => const Center());
     }

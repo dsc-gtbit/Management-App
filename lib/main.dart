@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       child: Sizer(builder: (context, oritentation, deviceType) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: "/payslip",
+          initialRoute: "/apiData",
           onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
         );
       }),
