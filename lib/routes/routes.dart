@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:salary_slip/screens/api_response_screen.dart';
-import 'package:salary_slip/screens/expandlist.dart';
-import 'package:salary_slip/screens/listscreen.dart';
+
+import 'package:salary_slip/screens/homescreen.dart';
+
 import 'package:salary_slip/screens/loginscreen.dart';
-import '../presentation/android_large_one_screen/android_large_one_screen.dart';
+
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case "/login":
+      case LoginScreen.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case "/listscreen":
-        return MaterialPageRoute(builder: (_) => const ListScreen());
-      case "/explist":
-        return MaterialPageRoute(builder: (_) => const SecondScreen());
-      case "/payslip":
-        return MaterialPageRoute(builder: (_) => const AndroidLargeOneScreen());
+      case HomeScreen.homeRoute:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case "/apiData":
         return MaterialPageRoute(builder: (_) => const APIResponseScreen());
       default:

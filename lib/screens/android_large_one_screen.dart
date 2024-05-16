@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_title.dart';
-import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_outlined_button.dart';
+import '../core/app_export.dart';
+import '../widgets/app_bar/appbar_title.dart';
+import '../widgets/app_bar/custom_app_bar.dart';
+import '../widgets/custom_outlined_button.dart';
 
 class AndroidLargeOneScreen extends StatelessWidget {
+   static const androidRoute = "/payslip";
   const AndroidLargeOneScreen({super.key});
 
   @override

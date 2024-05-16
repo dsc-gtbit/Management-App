@@ -53,7 +53,7 @@ class Sizer extends StatelessWidget {
   }
 }
 
-// ignore_for_file: must_be_immutable
+
 class SizeUtils {
   /// Device's BoxConstraints
   static late BoxConstraints boxConstraints;

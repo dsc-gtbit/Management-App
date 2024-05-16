@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:salary_slip/provider/temp.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:salary_slip/provider/loginprovider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:flutter/services.dart';
-import 'core/app_export.dart';
 
-import 'route/routes.dart';
+
+import 'routes/routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,18 +31,13 @@ class MyApp extends StatelessWidget {
           create: (context) => Login(),
         )
       ],
-      child: Sizer(builder: (context, oritentation, deviceType) {
+      child: ResponsiveSizer(builder: (context, oritentation, deviceType) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: "/apiData",
+          initialRoute: "/login",
           onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
         );
       }),
-      // child: MaterialApp(
-      //   debugShowCheckedModeBanner: false,
-      //   initialRoute: "/login",
-      //   onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
-      // ),
     );
   }
 }
