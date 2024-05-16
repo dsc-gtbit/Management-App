@@ -29,7 +29,11 @@ class _LoginScreenState extends State<LoginScreen> {
         body: SafeArea(
           child: Consumer<Login>(builder: (context, value, child) {
             if (value.auth.currentUser != null) {
-              Navigator.pushNamed(context, HomeScreen.homeRoute);
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                HomeScreen.homeRoute,
+                (route) => false,
+              );
             }
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
