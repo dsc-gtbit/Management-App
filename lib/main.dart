@@ -38,42 +38,6 @@ class MyApp extends StatelessWidget {
           onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
         );
       }),
-      // child: MaterialApp(
-      //   debugShowCheckedModeBanner: false,
-      //   initialRoute: "/login",
-      //   onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
-      // ),
     );
   }
 }
-
-
-
-// import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
-// import 'core/app_export.dart';
-
-// var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
-// void main() {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-//   ThemeHelper().changeTheme('primary');
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Sizer(
-//       builder: (context, orientation, deviceType) {
-//         return MaterialApp(
-//           theme: theme,
-//           title: 'payslip_project',
-//           debugShowCheckedModeBanner: false,
-//           initialRoute: AppRoutes.initialRoute,
-//           routes: AppRoutes.routes,
-//         );
-//       },
-//     );
-//   }
-// }
