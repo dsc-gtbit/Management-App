@@ -16,181 +16,183 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool checkedValue = false;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
-    // ignore: non_constant_identifier_names
-    return ResponsiveSizer(builder: (context, orientation, ScreenType) {
-      return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-          child: Consumer<Login>(builder: (context, value, child) {
-            if (value.auth.currentUser != null) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Consumer<Login>(builder: (context, value, child) {
+          if (value.auth.currentUser != null) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 HomeScreen.homeRoute,
                 (route) => false,
               );
-            }
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text(
-                  textAlign: TextAlign.center,
-                  'Guru Tegh Bahadur\nInstitute of Technology',
-                  //textAlign: TextAlign.left,
-                  style: GoogleFonts.openSans(
-                    shadows: const [
-                      Shadow(
-                        color: Color.fromARGB(
-                            47, 59, 59, 59), // Choose the color of the shadow
-                        blurRadius:
-                            5.0, // Adjust the blur radius for the shadow effect
-                        offset: Offset(1,
-                            1), // Set the horizontal and vertical offset for the shadow
-                      ),
-                    ],
-                    color: const Color.fromRGBO(0, 0, 0, 1),
-                    fontSize: 23.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Container(
-                  height: 220,
-                  width: 220,
-                  decoration: BoxDecoration(
-                      image: const DecorationImage(
-                          image: AssetImage("assets/gtblogo.png"),
-                          fit: BoxFit.fitHeight),
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(150)),
-                ),
-                Text(
-                  'Welcome !',
-                  //textAlign: TextAlign.left,
-                  style: GoogleFonts.quicksand(
-                    shadows: const [
-                      Shadow(
+            });
+          }
+          return Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text(
+                    textAlign: TextAlign.center,
+                    'Guru Tegh Bahadur\nInstitute of Technology',
+                    //textAlign: TextAlign.left,
+                    style: GoogleFonts.openSans(
+                      shadows: const [
+                        Shadow(
                           color: Color.fromARGB(
-                              45, 53, 52, 52), // Choose the color of the shadow
+                              47, 59, 59, 59), // Choose the color of the shadow
                           blurRadius:
                               5.0, // Adjust the blur radius for the shadow effect
                           offset: Offset(1,
-                              1) // Set the horizontal and vertical offset for the shadow
-                          ),
-                    ],
-                    color: const Color.fromRGBO(0, 0, 0, 1),
-                    fontSize: 23.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5.w),
-                  child: TextField(
-                    controller: emailController,
-                    style: const TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(20),
-                      suffixIcon: const Icon(Icons.email_outlined),
-                      filled: true,
-                      fillColor: const Color.fromARGB(59, 192, 222, 247),
-                      border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
-                      labelText: 'Email',
-                      labelStyle: TextStyle(
-                        fontFamily: 'Calibri',
-                        color: Colors.black.withOpacity(0.4),
-                      ),
+                              1), // Set the horizontal and vertical offset for the shadow
+                        ),
+                      ],
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 23.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5.w),
-                  child: TextField(
-                    obscureText: _isObscure,
-                    controller: passwordController,
-                    decoration: InputDecoration(
+                  Container(
+                    height: 220,
+                    width: 220,
+                    decoration: BoxDecoration(
+                        image: const DecorationImage(
+                            image: AssetImage("assets/gtblogo.png"),
+                            fit: BoxFit.fitHeight),
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(150)),
+                  ),
+                  Text(
+                    'Welcome !',
+                    //textAlign: TextAlign.left,
+                    style: GoogleFonts.quicksand(
+                      shadows: const [
+                        Shadow(
+                            color: Color.fromARGB(
+                                45, 53, 52, 52), // Choose the color of the shadow
+                            blurRadius:
+                                5.0, // Adjust the blur radius for the shadow effect
+                            offset: Offset(1,
+                                1) // Set the horizontal and vertical offset for the shadow
+                            ),
+                      ],
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 23.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+              
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: TextField(
+                      controller: emailController,
+                      style: const TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(20),
-                        suffixIcon: IconButton(
-                            icon: Icon(_isObscure
-                                ? Icons.visibility
-                                : Icons.visibility_off),
-                            onPressed: () {
-                              setState(() {
-                                _isObscure = !_isObscure;
-                              });
-                            }),
+                        suffixIcon: const Icon(Icons.email_outlined),
                         filled: true,
                         fillColor: const Color.fromARGB(59, 192, 222, 247),
                         border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8))),
-                        focusColor: Colors.black,
-                        labelText: 'Password',
+                        labelText: 'Email',
                         labelStyle: TextStyle(
-                            color: Colors.black.withOpacity(0.4),
-                            fontFamily: 'Calibri')),
+                          fontFamily: 'Calibri',
+                          color: Colors.black.withOpacity(0.4),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                CheckboxListTile(
-                  contentPadding: EdgeInsets.fromLTRB(25.sp, 0, 0, 0),
-                  activeColor: Colors.blue,
-                  selectedTileColor: Colors.black,
-                  title: const Text("Remember Me",
-                      style: TextStyle(
-                        fontFamily: 'Calibri',
-                      )),
-
-                  value: checkedValue,
-                  onChanged: (newValue) {
-                    setState(() {
-                      checkedValue = newValue!;
-                    });
-                  },
-                  controlAffinity:
-                      ListTileControlAffinity.leading, //  <-- leading Checkbox
-                ), //Row
-              ],
-            );
-          }),
-        ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5.w),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              padding: const EdgeInsets.fromLTRB(65, 11, 65, 11),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-                side: const BorderSide(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: TextField(
+                      obscureText: _isObscure,
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.all(20),
+                          suffixIcon: IconButton(
+                              icon: Icon(_isObscure
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  _isObscure = !_isObscure;
+                                });
+                              }),
+                          filled: true,
+                          fillColor: const Color.fromARGB(59, 192, 222, 247),
+                          border: const OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(8))),
+                          focusColor: Colors.black,
+                          labelText: 'Password',
+                          labelStyle: TextStyle(
+                              color: Colors.black.withOpacity(0.4),
+                              fontFamily: 'Calibri')),
+                    ),
+                  ),
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.fromLTRB(25.sp, 0, 0, 0),
+                    activeColor: Colors.blue,
+                    selectedTileColor: Colors.black,
+                    title: const Text("Remember Me",
+                        style: TextStyle(
+                          fontFamily: 'Calibri',
+                        )),
+              
+                    value: checkedValue,
+                    onChanged: (newValue) {
+                      setState(() {
+                        checkedValue = newValue!;
+                      });
+                    },
+                    controlAffinity:
+                        ListTileControlAffinity.leading, //  <-- leading Checkbox
+                  ), //Row
+                ],
               ),
-            ),
-            onPressed: () async {
-              await context
-                  .read<Login>()
-                  .signIn(emailController.text, passwordController.text)
-                  .then((value) =>
-                      Navigator.pushNamed(context, HomeScreen.homeRoute));
-
-              ;
-            },
-            child: Text(
-              "Log in",
-              style: TextStyle(
-                fontFamily: 'Calibri',
-                fontWeight: FontWeight.w500,
-                fontSize: 17.sp,
-                color: const Color.fromARGB(255, 255, 255, 255),
+            ],
+          );
+        }),
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.black,
+            padding: const EdgeInsets.fromLTRB(65, 11, 65, 11),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
           ),
+          onPressed: () async {
+            await context
+                .read<Login>()
+                .signIn(emailController.text, passwordController.text)
+                .then((value) =>
+                    Navigator.pushNamed(context, HomeScreen.homeRoute));
+
+            ;
+          },
+          child: Text(
+            "Log in",
+            style: TextStyle(
+              fontFamily: 'Calibri',
+              fontWeight: FontWeight.w500,
+              fontSize: 17.sp,
+              color: const Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
         ),
-      );
-    });
+      ),
+    );
   }
 }

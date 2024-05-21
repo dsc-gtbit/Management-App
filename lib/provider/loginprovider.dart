@@ -7,7 +7,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class Login with ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseFirestore store = FirebaseFirestore.instance;
   User? user;
+
   bool loading = false;
 
   Stream<User?> get userChange {
@@ -31,7 +33,15 @@ class Login with ChangeNotifier {
       UserCredential result = await auth.signInWithEmailAndPassword(
           email: email, password: password);
       user = result.user;
-      
+
+      if (user != null) {
+        await store
+            .collection("users")
+            .doc(user!.uid)
+            .get()
+            .then((value) => print(value.data()));
+      }
+
       loading = false;
       notifyListeners();
       return user!;

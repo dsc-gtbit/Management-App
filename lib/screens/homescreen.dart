@@ -17,20 +17,20 @@ class _HomeScreenState extends State<HomeScreen>
   late TabController _ctr;
   @override
   void initState() {
-    _ctr = TabController(length: 4, vsync: this);
+    _ctr = TabController(length: 3, vsync: this);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabBarView(controller: _ctr, children: [
+      body: TabBarView(controller: _ctr, children:const [
         ListScreen(),
         SecondScreen(),
-        AndroidLargeOneScreen(),
+        //AndroidLargeOneScreen(),
         PRofileScreen()
       ]),
-      bottomNavigationBar: TabBar(controller: _ctr, tabs: [
+      bottomNavigationBar: TabBar(controller: _ctr, tabs: const[
         Tab(
             child: Text(
           "home",
@@ -39,10 +39,10 @@ class _HomeScreenState extends State<HomeScreen>
             child: Text(
           "pay",
         )),
-        Tab(
-            child: Text(
-          "android",
-        )),
+        // Tab(
+        //     child: Text(
+        //   "android",
+        // )),
         Tab(
             child: Text(
           "extanded",
