@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../core/app_export.dart';
 import 'base_button.dart';
 
@@ -48,7 +49,7 @@ class CustomOutlinedButton extends BaseButton {
   }
 
   Widget get buildOutlinedButtonWidget => Container(
-        height: this.height ?? 34.v,
+        height: this.height ?? 34.h,
         width: this.width ?? double.maxFinite,
         margin: margin,
         // decoration: decoration,

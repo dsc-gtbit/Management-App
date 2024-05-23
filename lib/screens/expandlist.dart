@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SecondScreen extends StatelessWidget {
+  static const secondScreenRoute = "/explist";
   const SecondScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My List'),
-      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -16,14 +15,19 @@ class SecondScreen extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Card(
-                color: const Color.fromARGB(255, 203, 198, 198),
+                color: Colors.white,
                 child: ExpansionTile(
                   tilePadding: EdgeInsets.zero,
                   title: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       'Title ${index + 1}',
-                      style: const TextStyle(color: Colors.black),
+                      style: GoogleFonts.lato( 
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0, 
+                          ),
+                        ),
                     ),
                   ),
                   children: <Widget>[
@@ -35,7 +39,12 @@ class SecondScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               'Description ${index + 1}',
-                              style: const TextStyle(color: Colors.black),
+                              style: GoogleFonts.lato( 
+                          textStyle: const TextStyle(
+                            color: Colors.black54,
+                            fontSize: 14.0, 
+                          ),
+                        ),
                             ),
                           ),
                           IconButton(

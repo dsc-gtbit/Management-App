@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/app_export.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 String _appTheme = "lightCode";
 LightCodeColors get appTheme => ThemeHelper().themeColor();
@@ -68,55 +68,54 @@ class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) => TextTheme(
         bodyLarge: TextStyle(
           color: appTheme.whiteA700,
-          fontSize: 16.fSize,
+          fontSize: 16.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: TextStyle(
           color: appTheme.black900,
-          fontSize: 15.fSize,
+          fontSize: 15.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w400,
         ),
         bodySmall: TextStyle(
           color: appTheme.black900,
-          fontSize: 11.fSize,
+          fontSize: 11.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w400,
         ),
         headlineLarge: TextStyle(
           color: appTheme.gray90001,
-          fontSize: 32.fSize,
+          fontSize: 32.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w400,
         ),
         headlineMedium: TextStyle(
           color: appTheme.black900,
-          fontSize: 28.fSize,
+          fontSize: 28.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w300,
         ),
         headlineSmall: TextStyle(
           color: appTheme.black900,
-          fontSize: 24.fSize,
+          fontSize: 24.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w400,
         ),
         titleLarge: TextStyle(
           color: appTheme.black900,
-          fontSize: 20.fSize,
+          fontSize: 20.dp,
           fontFamily: 'Calibri',
           fontWeight: FontWeight.w400,
         ),
       );
 }
 
-/// Class containing the supported color schemes.
 class ColorSchemes {
   static final lightCodeColorScheme = ColorScheme.light();
 }
 
-/// Class containing custom colors for a lightCode theme.
+
 class LightCodeColors {
   // Black
   Color get black900 => Color(0XFF000000);

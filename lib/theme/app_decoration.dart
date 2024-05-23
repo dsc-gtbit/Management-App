@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../core/app_export.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:salary_slip/theme/theme_helper.dart';
+
 
 class AppDecoration {
   // Fill decorations
