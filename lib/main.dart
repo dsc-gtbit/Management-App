@@ -2,12 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:salary_slip/provider/temp.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:salary_slip/provider/Getsalprovider.dart';
+import 'package:salary_slip/provider/loginprovider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/services.dart';
 
-import 'route/routes.dart';
+import 'routes/routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,12 +31,18 @@ class MyApp extends StatelessWidget {
               create: (context) => Login().userChange, initialData: null),
           ChangeNotifierProvider<Login>(
             create: (context) => Login(),
-          )
+          ),
+          ChangeNotifierProvider<GetSal>(
+            create: (context) => GetSal(),
+          ),
         ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          initialRoute: "/payslip",
-          onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
-        ));
+        child: ResponsiveSizer(builder: (context, oritentation, deviceType) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            initialRoute: "/login",
+            onGenerateRoute: (settings) =>
+                AppRouter().onGenerateRoute(settings),
+          );
+        }));
   }
 }
