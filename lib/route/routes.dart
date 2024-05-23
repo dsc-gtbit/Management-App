@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:salary_slip/screens/expandlist.dart';
 import 'package:salary_slip/screens/listscreen.dart';
 import 'package:salary_slip/screens/loginscreen.dart';
-import '../presentation/android_large_one_screen/android_large_one_screen.dart';
+import '../screens/payslip_screen.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings routeSettings) {
@@ -14,7 +14,7 @@ class AppRouter {
       case "/explist":
         return MaterialPageRoute(builder: (_) => const SecondScreen());
       case "/payslip":
-        return MaterialPageRoute(builder: (_) => const AndroidLargeOneScreen());
+        return MaterialPageRoute(builder: (_) => const MyApp());
       default:
         return MaterialPageRoute(builder: (_) => const Center());
     }

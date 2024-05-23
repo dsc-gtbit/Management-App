@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:salary_slip/provider/temp.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/services.dart';
-import 'core/app_export.dart';
 
 import 'route/routes.dart';
 
@@ -24,20 +24,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        StreamProvider<User?>(
-            create: (context) => Login().userChange, initialData: null),
-        ChangeNotifierProvider<Login>(
-          create: (context) => Login(),
-        )
-      ],
-      child: Sizer(builder: (context, oritentation, deviceType) {
-        return MaterialApp(
+        providers: [
+          StreamProvider<User?>(
+              create: (context) => Login().userChange, initialData: null),
+          ChangeNotifierProvider<Login>(
+            create: (context) => Login(),
+          )
+        ],
+        child: MaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: "/payslip",
           onGenerateRoute: (settings) => AppRouter().onGenerateRoute(settings),
-        );
-      }),
-    );
+        ));
   }
 }
