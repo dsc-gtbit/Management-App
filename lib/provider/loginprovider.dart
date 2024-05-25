@@ -9,6 +9,7 @@ class Login with ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore store = FirebaseFirestore.instance;
   User? user;
+  String? pfNumber;
 
   bool loading = false;
 
@@ -39,7 +40,10 @@ class Login with ChangeNotifier {
             .collection("users")
             .doc(user!.uid)
             .get()
-            .then((value) => print(value.data()));
+            .then((value) { 
+              print(value.data());
+              pfNumber = value.data()?['pfNumber'];
+            });
       }
 
       loading = false;

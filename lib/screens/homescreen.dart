@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:salary_slip/screens/Profilescreen.dart';
-import 'package:salary_slip/screens/android_large_one_screen.dart';
 import 'package:salary_slip/screens/expandlist.dart';
 import 'package:salary_slip/screens/listscreen.dart';
+import '/screens/payslip_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const homeRoute = "/home";
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(controller: _ctr, children: const [
         ListScreen(),
         SecondScreen(),
-        //AndroidLargeOneScreen(),
+      
         PRofileScreen()
       ]),
       bottomNavigationBar: TabBar(
@@ -42,10 +42,7 @@ class _HomeScreenState extends State<HomeScreen>
               iconMargin: EdgeInsets.all(0),
               icon: Icon(Icons.receipt),
             ),
-            // Tab(
-            //     child: Text(
-            //   "android",
-            // )),
+           
             Tab(
               iconMargin: EdgeInsets.all(0),
               icon: Icon(Icons.person),

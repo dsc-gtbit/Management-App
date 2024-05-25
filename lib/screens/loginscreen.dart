@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Consumer<Login>(builder: (context, value, child) {
           if (value.auth.currentUser != null) {
@@ -55,13 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                       color: const Color.fromRGBO(0, 0, 0, 1),
-                      fontSize: 23.sp,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Container(
-                    height: 220,
-                    width: 220,
+                    height: 200,
+                    width: 200,
                     decoration: BoxDecoration(
                         image: const DecorationImage(
                             image: AssetImage("assets/gtblogo.png"),
@@ -75,8 +75,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: GoogleFonts.quicksand(
                       shadows: const [
                         Shadow(
-                            color: Color.fromARGB(
-                                45, 53, 52, 52), // Choose the color of the shadow
+                            color: Color.fromARGB(45, 53, 52,
+                                52), // Choose the color of the shadow
                             blurRadius:
                                 5.0, // Adjust the blur radius for the shadow effect
                             offset: Offset(1,
@@ -84,11 +84,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                       ],
                       color: const Color.fromRGBO(0, 0, 0, 1),
-                      fontSize: 23.sp,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-              
+
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: TextField(
@@ -128,7 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: const Color.fromARGB(59, 192, 222, 247),
                           border: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8))),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8))),
                           focusColor: Colors.black,
                           labelText: 'Password',
                           labelStyle: TextStyle(
@@ -137,31 +138,43 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   CheckboxListTile(
-                    contentPadding: EdgeInsets.fromLTRB(25.sp, 0, 0, 0),
+                    contentPadding: EdgeInsets.fromLTRB(4.w, 0, 0, 0),
                     activeColor: Colors.blue,
                     selectedTileColor: Colors.black,
                     title: const Text("Remember Me",
                         style: TextStyle(
                           fontFamily: 'Calibri',
                         )),
-              
+
                     value: checkedValue,
                     onChanged: (newValue) {
                       setState(() {
                         checkedValue = newValue!;
                       });
                     },
-                    controlAffinity:
-                        ListTileControlAffinity.leading, //  <-- leading Checkbox
+                    controlAffinity: ListTileControlAffinity
+                        .leading, //  <-- leading Checkbox
                   ), //Row
                 ],
               ),
+              if (value.loading) ...[
+                Container(
+                  height: Device.safeHeight,
+                  width: Device.safeWidth,
+                  color: const Color.fromARGB(139, 41, 41, 41),
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.blue,
+                    ),
+                  ),
+                )
+              ]
             ],
           );
         }),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 6.w),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
@@ -179,15 +192,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 .signIn(emailController.text, passwordController.text)
                 .then((value) =>
                     Navigator.pushNamed(context, HomeScreen.homeRoute));
-
-            ;
           },
           child: Text(
             "Log in",
             style: TextStyle(
               fontFamily: 'Calibri',
               fontWeight: FontWeight.w500,
-              fontSize: 17.sp,
+              fontSize: 18.sp,
               color: const Color.fromARGB(255, 255, 255, 255),
             ),
           ),
