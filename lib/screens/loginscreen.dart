@@ -138,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   CheckboxListTile(
-                    contentPadding: EdgeInsets.fromLTRB(25.sp, 0, 0, 0),
+                    contentPadding: EdgeInsets.fromLTRB(4.w, 0, 0, 0),
                     activeColor: Colors.blue,
                     selectedTileColor: Colors.black,
                     title: const Text("Remember Me",
@@ -174,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 6.w),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
             style: TextStyle(
               fontFamily: 'Calibri',
               fontWeight: FontWeight.w500,
-              fontSize: 17.sp,
+              fontSize: 18.sp,
               color: const Color.fromARGB(255, 255, 255, 255),
             ),
           ),
