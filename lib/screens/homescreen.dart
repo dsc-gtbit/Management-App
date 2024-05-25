@@ -24,30 +24,33 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabBarView(controller: _ctr, children:const [
+      body: TabBarView(controller: _ctr, children: const [
         ListScreen(),
         SecondScreen(),
         //AndroidLargeOneScreen(),
         PRofileScreen()
       ]),
-      bottomNavigationBar: TabBar(controller: _ctr, tabs: const[
-        Tab(
-            child: Text(
-          "home",
-        )),
-        Tab(
-            child: Text(
-          "pay",
-        )),
-        // Tab(
-        //     child: Text(
-        //   "android",
-        // )),
-        Tab(
-            child: Text(
-          "extanded",
-        ))
-      ]),
+      bottomNavigationBar: TabBar(
+          controller: _ctr,
+          splashBorderRadius: BorderRadius.circular(10),
+          tabs: const [
+            Tab(
+              iconMargin: EdgeInsets.all(0),
+              icon: Icon(Icons.home_rounded),
+            ),
+            Tab(
+              iconMargin: EdgeInsets.all(0),
+              icon: Icon(Icons.receipt),
+            ),
+            // Tab(
+            //     child: Text(
+            //   "android",
+            // )),
+            Tab(
+              iconMargin: EdgeInsets.all(0),
+              icon: Icon(Icons.person),
+            )
+          ]),
     );
   }
 }
