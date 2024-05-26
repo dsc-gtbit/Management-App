@@ -48,6 +48,8 @@ dependencies:
   http: ^1.2.1
   dot_navigation_bar: ^1.0.2
   flutter_cors: ^1.5.0
+  intl: ^0.18.1
+
 
 dev_dependencies:
   flutter_test:

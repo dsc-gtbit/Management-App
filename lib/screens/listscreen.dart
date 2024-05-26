@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:salary_slip/provider/Getsalprovider.dart';
 import 'package:salary_slip/screens/payslip_screen.dart';
+import 'package:intl/intl.dart';
 
 class ListScreen extends StatefulWidget {
   static const listScreenRoute = "/listscreen";
@@ -41,6 +42,11 @@ class _ListScreenState extends State<ListScreen> {
                 itemCount: getSalProvider.employeesFuture.length,
                 itemBuilder: (context, index) {
                   final employee = getSalProvider.employeesFuture[index];
+
+                  final formattedDate = employee.dateOfJoining != null
+                      ? DateFormat('yyyy-MM-dd').format(employee.dateOfJoining!)
+                      : 'Invalid date';
+
                   return InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, PayDetails.payDetailRoute,
@@ -52,7 +58,7 @@ class _ListScreenState extends State<ListScreen> {
                         color: Colors.white,
                         child: ListTile(
                           title: Text(
-                            employee.name ?? 'No name',
+                            formattedDate,
                             style: GoogleFonts.lato(
                               textStyle: const TextStyle(
                                 color: Colors.black,
@@ -61,7 +67,7 @@ class _ListScreenState extends State<ListScreen> {
                             ),
                           ),
                           subtitle: Text(
-                            employee.designation ?? 'No designation',
+                            employee.name ?? 'No name',
                             style: GoogleFonts.lato(
                               textStyle: const TextStyle(
                                 color: Colors.black54,
