@@ -49,7 +49,6 @@ class Payslipscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pfNumber = context.watch<Login>().pfNumber;
     var uuid = context.watch<Login>().user?.uid;
     return SingleChildScrollView(
       child: Container(
@@ -208,7 +207,7 @@ class Payslipscreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          pfNumber ?? "",
+                          data.pfNumber ?? "",
                           style: GoogleFonts.getFont(
                             'Noto Sans',
                             fontWeight: FontWeight.w400,
@@ -238,7 +237,7 @@ class Payslipscreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'TGT',
+                          data.designation ?? "",
                           style: GoogleFonts.getFont(
                             'Noto Sans',
                             fontWeight: FontWeight.w400,
@@ -324,7 +323,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.basicPay}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -369,7 +368,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.agp}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -414,7 +413,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.da}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -459,7 +458,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.hra}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -504,7 +503,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.tpt}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -549,7 +548,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.other}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -594,7 +593,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.gross}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -611,7 +610,7 @@ class Payslipscreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  //earning end
+                  //******************earning end********************
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 11),
                     child: Column(
@@ -672,7 +671,7 @@ class Payslipscreen extends StatelessWidget {
                                     child: Align(
                                       alignment: AlignmentDirectional.centerEnd,
                                       child: Text(
-                                        "00",
+                                        data.totaldays ?? "",
                                         style: GoogleFonts.getFont(
                                           'Noto Sans',
                                           fontWeight: FontWeight.w400,
@@ -703,7 +702,7 @@ class Payslipscreen extends StatelessWidget {
                                     child: Align(
                                       alignment: AlignmentDirectional.centerEnd,
                                       child: Text(
-                                        "00",
+                                        data.dayabsent ?? "",
                                         style: GoogleFonts.getFont(
                                           'Noto Sans',
                                           fontWeight: FontWeight.w400,
@@ -734,7 +733,7 @@ class Payslipscreen extends StatelessWidget {
                                     child: Align(
                                       alignment: AlignmentDirectional.centerEnd,
                                       child: Text(
-                                        "00",
+                                        data.daypresent ?? "",
                                         style: GoogleFonts.getFont(
                                           'Noto Sans',
                                           fontWeight: FontWeight.w400,
@@ -752,7 +751,7 @@ class Payslipscreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  //attendance end
+                  //********************attendance end**********************
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 11),
                     child: Column(
@@ -828,7 +827,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.employeepf}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -873,7 +872,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.taxes}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -918,7 +917,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.advloans}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -963,7 +962,7 @@ class Payslipscreen extends StatelessWidget {
                                         alignment:
                                             AlignmentDirectional.centerEnd,
                                         child: Text(
-                                          "₹00000.00",
+                                          "₹${data.grossdeductions}",
                                           style: GoogleFonts.getFont(
                                             'Noto Sans',
                                             fontWeight: FontWeight.w400,
@@ -1015,18 +1014,9 @@ class Payslipscreen extends StatelessWidget {
                             children: [
                               Container(
                                 margin: const EdgeInsets.fromLTRB(0, 0, 4.9, 0),
-                                child: Text(
-                                  '₹',
-                                  style: GoogleFonts.getFont(
-                                    'Noto Sans',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 6.w,
-                                    color: const Color(0xFF020735),
-                                  ),
-                                ),
                               ),
                               Text(
-                                '000000.00',
+                                "₹${data.net}",
                                 style: GoogleFonts.getFont(
                                   'Noto Sans',
                                   fontWeight: FontWeight.w400,
@@ -1059,7 +1049,7 @@ class Payslipscreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Seven Lakhs Seven Thousand Seven Hundred Seventy Seven only',
+                          data.salwords ?? " ",
                           style: GoogleFonts.getFont(
                             'Noto Sans',
                             fontWeight: FontWeight.w400,

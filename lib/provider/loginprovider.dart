@@ -10,6 +10,25 @@ class Login with ChangeNotifier {
   final FirebaseFirestore store = FirebaseFirestore.instance;
   User? user;
   String? pfNumber;
+  String? designation;
+  String? newBasic;
+  String? days;
+  String? basicPay;
+  String? agp;
+  String? da;
+  String? hra;
+  String? tpt;
+  String? other;
+  String? gross;
+  String? taxes;
+  String? grossdeductions;
+  String? net;
+  String? totaldays;
+  String? daypresent;
+  String? dayabsent;
+  String? employeepf;
+  String? advloans;
+  String? salwords;
 
   bool loading = false;
 
@@ -36,20 +55,18 @@ class Login with ChangeNotifier {
       user = result.user;
 
       if (user != null) {
-        await store
-            .collection("users")
-            .doc(user!.uid)
-            .get()
-            .then((value) { 
-              print(value.data());
-              pfNumber = value.data()?['pfNumber'];
-            });
+        await store.collection("users").doc(user!.uid).get().then((value) {
+          // ignore: avoid_print
+          print(value.data());
+          pfNumber = value.data()?['pfNumber'];
+        });
       }
 
       loading = false;
       notifyListeners();
       return user!;
     } catch (e) {
+      // ignore: avoid_print
       print('Error signing in: $e');
 
       rethrow;
