@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:salary_slip/provider/Getsalprovider.dart';
 import 'package:salary_slip/screens/payslip_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:salary_slip/util/pdfcreator.dart';
 
 class ListScreen extends StatefulWidget {
   static const listScreenRoute = "/listscreen";
@@ -78,8 +79,9 @@ class _ListScreenState extends State<ListScreen> {
                           trailing: IconButton(
                             icon: const Icon(Icons.download),
                             color: Colors.black,
-                            onPressed: () {
-                              // download functionality
+                            onPressed: () async {
+                              await generatePDF(
+                                  getSalProvider.employeesFuture[index]);
                             },
                           ),
                         ),
